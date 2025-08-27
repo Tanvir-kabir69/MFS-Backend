@@ -1,0 +1,6 @@
+export enum Employee {
+  ADMIN = "ADMIN",
+  MANAGER = "MANAGER",
+  SENIOR_EXECUTIVE = "SENIOR_EXECUTIVE",
+  EXECUTIVE = "EXECUTIVE",
+}

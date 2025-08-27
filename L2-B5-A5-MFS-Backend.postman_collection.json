@@ -1,0 +1,829 @@
+{
+	"info": {
+		"_postman_id": "10c1dfba-c7aa-470d-a7d1-93a7243e0491",
+		"name": "L2-B5-A5-MFS-Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39835522"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// default ROLE is USER. no need to explicitly assign role in payload\r\n// to upgrade ROLE from USER to ADMIN OR AGENT,  rewuest for admin and agent.\r\n\r\n{\r\n    \"name\" : \"Tanvir\",\r\n    \"email\" : \"tanvirkaaaaaaabirrrrrrrrrrrrrR@gmail.com\",\r\n    \"password\" :\"Ph@12345678\",\r\n    \"phone\": \"01791315529\"\r\n    // \"role\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/user/register",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODZmZDUwYmExMGRiNmZkZWFkNGNhNjIiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJTVVBFUl9BRE1JTiIsImlhdCI6MTc1MjE2NDY4NywiZXhwIjoxNzUyMTY0NzAyfQ.aVH4F_84OmtwWl5_JR1Fjws1byrZubXw9Yegbyqzeuw",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// only ASMIN and SUPER_ADMIN can access this route.",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/user/all-users",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"user",
+								"all-users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// to update USER, place _id in route\r\n{\r\n    \"name\": \"Tanvirr\",\r\n    \"phone\" : \"01912345678\",\r\n    \"address\" : \"Khulna\"\r\n    // \"role\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/user/68a590b6eebe71cbac74176d",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"user",
+								"68a590b6eebe71cbac74176d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Me",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODcwMThlM2JlNWNlMjk2M2I1MTY2MzgiLCJlbWFpbCI6InNhbWluaXNyYXIxQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzUzMTU5MzIzLCJleHAiOjE3NTMyNDU3MjN9.mwAexnOIF_WW7muP_rEiWMh6Tx8KPPJZEXAwLpGzFGk",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"super@gmail.com\",\r\n    \"password\" :\"12345678\"\r\n}"
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/user/me",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"email\" : \"saminravi.ph@gmail.com\",\r\n    // \"password\" :\"Ph@12345678\"\r\n    \"email\" : \"super@gmail.com\",\r\n    \"password\" :\"12345678\"\r\n    // \"email\" : \"tanvirkabirrR@gmail.com\",\r\n    // \"password\" :\"Ph@12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/auth/login",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Access Token / Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/auth/access-token",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"auth",
+								"access-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/auth/logout",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODZmZDUwYmExMGRiNmZkZWFkNGNhNjIiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJTVVBFUl9BRE1JTiIsImlhdCI6MTc1MzM3NTc4MiwiZXhwIjoxNzUzNDYyMTgyfQ.Mr2CDX4567Jzc_zK0KHsubIIH-L93iVqjHp_5TWfIE8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\" : \"Ph@12345678\",\r\n    \"newPassword\" : \"Ph@123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/auth/reset-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role Controller",
+			"item": [
+				{
+					"name": "request Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_id\": \"68a489d37b017a49797a26e1\"\r\n//   \"approoval_id\": \"66bfe40cf2a1c9e8b0f7a456\",\r\n//   \"isAccepted\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/roleController/request-admin",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"roleController",
+								"request-admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "request Agent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_id\": \"68a489d37b017a49797a26e1\"\r\n//   \"approoval_id\": \"66bfe40cf2a1c9e8b0f7a456\",\r\n//   \"isAccepted\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/roleController/request-agent",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"roleController",
+								"request-agent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all-valid-admin-requests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/roleController/all-valid-admin-requests",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"roleController",
+								"all-valid-admin-requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all-valid-agent-requests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/roleController/all-valid-agent-requests",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"roleController",
+								"all-valid-agent-requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my admin requests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/roleController/admin-requests/me",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"roleController",
+								"admin-requests",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my agent requests",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/roleController/agent-requests/me",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"roleController",
+								"agent-requests",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "approove admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request_id\": \"68a213702c6d272530f3c9bb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/roleController/admin-request-approve",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"roleController",
+								"admin-request-approve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "approove agent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request_id\": \"68a213812c6d272530f3c9c3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/roleController/agent-request-approve",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"roleController",
+								"agent-request-approve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel admin request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request_id\": \"68a24181db2a193a2cba568d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/roleController/admin-request-cancel",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"roleController",
+								"admin-request-cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel agent request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request_id\": \"68a2418edb2a193a2cba5692\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/roleController/agent-request-cancel",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"roleController",
+								"agent-request-cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all admins",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request_id\": \"68a2418edb2a193a2cba5692\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/roleController/all-admins",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"roleController",
+								"all-admins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all agents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request_id\": \"68a2418edb2a193a2cba5692\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/roleController/all-agents",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"roleController",
+								"all-agents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request_id\": \"68a2418edb2a193a2cba5692\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/roleController/all-users",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"roleController",
+								"all-users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "do Transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request_id\": \"68a2418edb2a193a2cba5692\"\r\n}"
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/transaction",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my transactions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request_id\": \"68a2418edb2a193a2cba5692\"\r\n}"
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/transaction/my-transactions",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"transaction",
+								"my-transactions"
+							],
+							"query": [
+								{
+									"key": "transaction_type",
+									"value": "SENT_MONEY",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my commissions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request_id\": \"68a2418edb2a193a2cba5692\"\r\n}"
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/transaction/my-commissions",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"transaction",
+								"my-commissions"
+							],
+							"query": [
+								{
+									"key": "transaction_type",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get All Transactions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"request_id\": \"68a2418edb2a193a2cba5692\"\r\n}"
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/transaction/all-transactions",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"transaction",
+								"all-transactions"
+							],
+							"query": [
+								{
+									"key": "transaction_type",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wallet",
+			"item": [
+				{
+					"name": "my balance",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Restriction Control",
+			"item": [
+				{
+					"name": "Activity control",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// action = ACTIVE || INACTIVE   ------- S_ADMIN AND ADMIN can not request , becasuse they can never be inactive, as well as active\r\n{\r\n    \"action\": \"ACTIVE\"\r\n    // \"action\": \"INACTIVE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/restriction/activity-control",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"restriction",
+								"activity-control"
+							],
+							"query": [
+								{
+									"key": "transaction_type",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user Blocking Control",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// action = BLOCKED || UNBLOCKED   ------- \r\n// ONLY S_ADMIN AND ADMIN are permitted to BLOCK || UNBLOCK\r\n// SUPER ADMIN is never allowed to be blocked/unblocked\r\n// ADMIN is not allowed to perform another ADMIN  blocking/unblocking \r\n// if requested user is INACTIVE , he can not be BLOCKED/UNBLOCKED\r\n// you can not UNBLOCK an USER who is not BLOCKED\r\n\r\n{\r\n  \"requestEmail\": \"tanvirkaabirrrrrrrrrrrrR@gmail.com\",\r\n//   \"action\": \"BLOCKED\"\r\n  \"action\": \"UNBLOCKED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/restriction/blocking-control",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"restriction",
+								"blocking-control"
+							],
+							"query": [
+								{
+									"key": "transaction_type",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Inactive Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/restriction/inactive-users",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"restriction",
+								"inactive-users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Blocked Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{L2-B5-A5-MFS}}/restriction/blocked-users",
+							"host": [
+								"{{L2-B5-A5-MFS}}"
+							],
+							"path": [
+								"restriction",
+								"blocked-users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
