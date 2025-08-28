@@ -23,17 +23,9 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
 | 🛡️ Security  | jwt, bcrypt                            |
 | 📦 Others    | cors, cookie-parser, zod, dotenv, etc. |
 
----
----
----
----
----
----
----
----
----
+***
 
-### 📌 Minimul Project Overview
+## 📌 Minimul Project Overview
 
 - ✅ JWT-based login system(role based) with : `SUPER ADMIN`, `ADMIN`, `AGENT`, `USER`
 - ✅ Secure password hashing (using bcrypt)
@@ -59,19 +51,9 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
 - ✅ Role-based route protection is implemented
 
 ---
-
-
-***
-***
-***
-***
-***
-***
-***
-***
 ***
 
-### 🧠 Questions and Answering Guides
+## 🧠 Questions and Answering Guides
 
 *Consider these questions and answers carefully before testing this system. They will make you understand system architecture and logic.*
 
@@ -88,10 +70,8 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
     - wallet can not be blocked automatically. Admin or Super Admin Blocks/Unblocks an User. If the user is blocked, its wallet is supposed to be blocked. So, the user can not perform any transaction throw their wallet.
 
 ---
----
----
 
-### 🔁 Transaction Management
+## 🔁 Transaction Management
 
 - What fields are essential?
     - receiverEmail, amount, transaction_type is required
@@ -101,10 +81,8 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
     - Transaction,  Charges and Commissions are handeled automatically during a transaction.
 
 ---
----
----
 
-### 👥 Role Representation
+## 👥 Role Representation
 
 - How will be distinguished between users, agents, and admins?
     - Single User model with a role field.
@@ -118,11 +96,8 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
     - Admin will place an Admin role request, if the request is accepted by super admin, then they will play Admin role.
 
 ---
----
----
 
-
-### 🫆 Validations & Business Rules
+## 🫆 Validations & Business Rules
 
 - What validations will be enforced?
     - e.g., **insufficient balance**, **non-existent receiver**, **negative amounts**
@@ -134,10 +109,8 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
     - No, their is no minimum balance requirements. Your money is your asset. As long as you have money. You can use them.
 
 ---
----
----
 
-### **📜 Access & Visibility**
+## **📜 Access & Visibility**
 
 - How will users/agents access their **wallet and transaction history**?
     - Throw their transaction history api. transaction_type query supported.
@@ -149,10 +122,8 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
     - All transactions
 
 ---
----
----
 
-### 💜 [Exceptional Features:]()
+## 💜 [Exceptional Features:]()
 
 - **Transaction `fee` system** 
 - **Agent `commissions`**
@@ -160,15 +131,7 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
 - **`Notification` system `console-based`**
 - **Agent-based `cash-in/cash-out` support**
 
-
-***
-***
-***
-***
-***
-***
-***
-***
+---
 ***
 
 ## 🛠️Project Setup
@@ -185,27 +148,9 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
 ##
 
 ***
-***
-***
-***
-***
-***
-***
-***
-***
-***
-***
-***
 
 # ✨ API Testing(Postman)
 
-***
-***
-***
-***
-***
-***
-***
 ***
 
 ## ⁉️ How to get stared?
@@ -278,14 +223,6 @@ If you just want to avoid create an account and log in, you can just continue wi
 * Or can **`Log Out`**. **POST:** `api/v1/auth/logout`
 
 ***
-***
-***
-***
-***
-***
-***
-***
-***
 
 
 ## 🤔 How to get upgraded in `AGENT` or `ADMIN` 
@@ -332,14 +269,6 @@ If you just want to avoid create an account and log in, you can just continue wi
 * Applicant must be logged in to submit `AGENT REQUEST`.
 
 
-***
-***
-***
-***
-***
-***
-***
-***
 ***
 
 
@@ -391,14 +320,6 @@ If you just want to avoid create an account and log in, you can just continue wi
 
 
 ***
-***
-***
-***
-***
-***
-***
-***
-***
 
 
 
@@ -449,14 +370,6 @@ If you just want to avoid create an account and log in, you can just continue wi
 
 
 ***
-***
-***
-***
-***
-***
-***
-***
-***
 
 ## 🤔 How to get all `ADMIN`, `AGENTS` Or `USERS` ?
 
@@ -479,14 +392,6 @@ If you just want to avoid create an account and log in, you can just continue wi
 * Both  `SUPER ADMIN` and `ADMIN` are allowed to `GET ALL USERS` . And they must need to be logged in.
 
 
-***
-***
-***
-***
-***
-***
-***
-***
 ***
 
 ## 💁How `Restriction Control` works ?
@@ -546,14 +451,7 @@ If you just want to avoid create an account and log in, you can just continue wi
 * Only `ADMIN` and `SUPER ADMIN` can access these users.
 
 ***
-***
-***
-***
-***
-***
-***
-***
-***
+
 
 ## 🔁💲Transaction
 
@@ -594,27 +492,13 @@ If you just want to avoid create an account and log in, you can just continue wi
 * Only `SUPER ADMIN` and `ADMIN` are allowed to access all transactions. User must needed to logged in.
 
 ***
-***
-***
-***
-***
-***
-***
-***
-***
+
 
 
 ## 📖 Explanation of `Transaction` and `Transaction Type`
 
 ***
-***
-***
-***
-***
-***
-***
-***
-***
+
 
 
 
@@ -624,19 +508,4 @@ If you just want to avoid create an account and log in, you can just continue wi
 *  🌍 **LIVE LINK:** [MFS Backend Live Link](https://mfs-kappa.vercel.app/)
 
 ***
-***
-***
-***
-***
-***
-***
-***
-***
-***
-***
-***
-***
-***
-***
-***
-***
+
