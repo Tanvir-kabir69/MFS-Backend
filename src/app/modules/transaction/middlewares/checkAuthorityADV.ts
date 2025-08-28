@@ -4,7 +4,7 @@ import { User } from "../../user/user.model";
 import AppError from "../../../errorHelpers/AppError";
 import httpStatus from "http-status-codes";
 import { JwtPayload } from "jsonwebtoken";
-import { Role } from "../../user/user.interface";
+import { accountStatus, Role } from "../../user/user.interface";
 
 // Define allowed sender/receiver roles per transaction type
 const transactionRules: Partial<
@@ -72,6 +72,9 @@ const checkAuthority = async (
     if (!sender) throw new AppError(httpStatus.BAD_REQUEST, "Sender not found");
     if (!receiver)
       throw new AppError(httpStatus.BAD_REQUEST, "Receiver not found");
+    if(receiver.accountStatus = accountStatus.BLOCKED){
+      throw new AppError(httpStatus.BAD_REQUEST, "Requested user is blocked. Transaction is not possible.")
+    }
 
     const rule = transactionRules[transactionType];
 
