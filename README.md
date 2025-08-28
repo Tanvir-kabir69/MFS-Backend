@@ -24,18 +24,13 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
 | 📦 Others    | cors, cookie-parser, zod, dotenv, etc. |
 
 ---
-
-
-***
-***
-***
-***
-***
-***
-***
-***
-***
-
+---
+---
+---
+---
+---
+---
+---
 ---
 
 ### 📌 Minimul Project Overview
