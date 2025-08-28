@@ -71,7 +71,7 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
 
 ---
 
-## 🔁 Transaction Management
+### 🔁 Transaction Management
 
 - What fields are essential?
     - receiverEmail, amount, transaction_type is required
@@ -82,7 +82,7 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
 
 ---
 
-## 👥 Role Representation
+### 👥 Role Representation
 
 - How will be distinguished between users, agents, and admins?
     - Single User model with a role field.
@@ -97,7 +97,7 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
 
 ---
 
-## 🫆 Validations & Business Rules
+### 🫆 Validations & Business Rules
 
 - What validations will be enforced?
     - e.g., **insufficient balance**, **non-existent receiver**, **negative amounts**
@@ -110,7 +110,7 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
 
 ---
 
-## **📜 Access & Visibility**
+### **📜 Access & Visibility**
 
 - How will users/agents access their **wallet and transaction history**?
     - Throw their transaction history api. transaction_type query supported.
@@ -122,6 +122,7 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
     - All transactions
 
 ---
+***
 
 ## 💜 [Exceptional Features:]()
 
@@ -146,7 +147,7 @@ Develop a **MFS System** using **Express**, **TypeScript**, and **MongoDB (via M
 8. Test API
 
 ##
-
+***
 ***
 
 # ✨ API Testing(Postman)
@@ -497,15 +498,32 @@ If you just want to avoid create an account and log in, you can just continue wi
 
 ## 📖 Explanation of `Transaction` and `Transaction Type`
 
+
+| Transaction Type       | Sender(Paywe)             | Receiver                  | Handelation                      | Charge |      Charge Name       | Charge Payer | Charge Receiver | Commission | Commission Name            | Commission Payer | Commission Receiver |
+|------------------------|---------------------------|---------------------------|----------------------------------|--------|------------------------|--------------|-----------------|------------|----------------------------|------------------|---------------------|
+| ADMIN LOAD             | SUPER ADMIN               | ADMIN                     | Manually Throw Request           |   ❌   |         ❌            |    ❌       |       ❌        |     ❌    |         ❌                 |        ❌        |        ❌          |
+| ADMIN LOAD             | ADMIN                     | SUPER ADMIN/ ADMIN        | Manually Throw Request           |   ❌   |         ❌            |    ❌       |       ❌        |     ❌    |         ❌                 |        ❌        |        ❌          |
+| AGENT LOAD             | SUPER ADMIN / ADMIN       | AGENT                     | Manually Throw Request           |   ❌   |         ❌            |    ❌       |       ❌        |     ❌    |         ❌                 |        ❌        |        ❌          |
+| AGENT UNLOAD           | AGENT                     | AGENT/ ADMIN/ SUPER ADMIN | Manually Throw Request           |   ❌   |         ❌            |    ❌       |       ❌        |     ❌    |         ❌                 |        ❌        |        ❌          |
+| CASH IN                | Anyone except USER        | USER                      | Manually Throw Request           |   ✅   | CASH IN CHARGE         |   Sender    | SUPER ADMIN      |     ✅    | CASH IN COMMISSION         |  SUPER ADMIN     | Sender              |
+| CASH OUT               | USER                      | Anyone except USER        | Manually Throw Request           |   ✅   | CASH OUT CHARGE        |   Sender    | SUPER ADMIN      |     ✅    | CASH OUT COMMISSION        |  SUPER ADMIN     | Receiver            |
+| SENT MONEY             | Anyone                    | Anyone                    | Manually Throw Request           |   ✅   | SENT MONEY CHARGE      |   Sender    | SUPER ADMIN      |     ✅    | SENT MONEY COMMISSION      |  SUPER ADMIN     | Sender              |
+| CASH IN CHARGE         | Sender in Cash In         | SUPER ADMIN               | Automatically During Cash in     |   ❌   |         ❌            |    ❌       |       ❌        |     ❌    |         ❌                 |        ❌        |        ❌          |
+| CASH OUT CHARGE        | Sender in Cash Out        | SUPER ADMIN               | Automatically During Cash OUT    |   ❌   |         ❌            |    ❌       |       ❌        |     ❌    |         ❌                 |        ❌        |        ❌          |
+| SENT MONEY CHARGE      | Sender in Sent Money      | SUPER ADMIN               | Automatically During Sent Money  |   ❌   |         ❌            |    ❌       |       ❌        |     ❌    |         ❌                 |        ❌        |        ❌          |
+| CASH IN COMMISSION     | SUPER ADMIN               | Sender in Cash In         | Automatically During Cash in     |   ❌   |         ❌            |    ❌       |       ❌        |     ❌    |         ❌                 |        ❌        |        ❌          |
+| CASH OUT COMMISSION    | SUPER ADMIN               | Receiver in Cash Out      | Automatically During Cash Out    |   ❌   |         ❌            |    ❌       |       ❌        |     ❌    |         ❌                 |        ❌        |        ❌          |
+| SENT MONEY COMMISSION  | SUPER ADMIN               | Sender in Sent Money      | Automatically During Sent Money  |   ❌   |         ❌            |    ❌       |       ❌        |     ❌    |         ❌                 |        ❌        |        ❌          |
+
+
 ***
-
-
-
+***
 
 
 ## ✨ LIVE LINK:
 
 *  🌍 **LIVE LINK:** [MFS Backend Live Link](https://mfs-kappa.vercel.app/)
 
+***
 ***
 
