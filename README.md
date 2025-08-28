@@ -493,10 +493,11 @@ If you just want to avoid create an account and log in, you can just continue wi
 * Only `SUPER ADMIN` and `ADMIN` are allowed to access all transactions. User must needed to logged in.
 
 ***
+***
 
 
 
-## 📖 Explanation of `Transaction` and `Transaction Type`
+# 📖 Explanation of `Transaction` and `Transaction Type`
 
 
 | Transaction Type       | Sender(Paywe)             | Receiver                  | Handelation                      | Charge |      Charge Name       | Charge Payer | Charge Receiver | Commission | Commission Name            | Commission Payer | Commission Receiver |
